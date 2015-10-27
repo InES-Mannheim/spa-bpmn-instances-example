@@ -1,0 +1,38 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+
+# processes and instances
+
+###
+# summary: Returns all known processes
+# operationId: listAllProcesses
+# produces:
+# - application/ld+json
+# responses:
+#  200:
+#    description: List of processes is returned
+#  404:
+#    description: No processes found
+###
+GET     /processes              controllers.ProcessesController.list
+#POST    /processes              controllers.ProcessesController.create
+# GET     /processes/:id          controllers.ProcessesController.read(id: String)
+# PUT     /processes/:id          controllers.ProcessesController.update(id: String)
+# DELETE  /processes/:id          controllers.ProcessesController.delete(id: String)
+
+# POST    /processes/:processId/instances    controllers.ProcessInstancesController.create(processId: String)
+# GET     /processes/:processId/instances    controllers.ProcessInstancesController.list(processId: String)
+# GET     /processes/:processId/instances/:instanceId    controllers.ProcessInstancesController.read(processId: String, instanceId: String)
+# PUT     /processes/:processId/instances/:instanceId    controllers.ProcessInstancesController.update(processId: String, instanceId: String)
+# DELETE     /processes/:processId/instances/:instanceId    controllers.ProcessInstancesController.delete(processId: String, instanceId: String)
+
+###
+# summary: swagger definition
+# description: for swagger UI to consume
+###
+GET   /docs/swagger.json         @controllers.ApiSpecs.specs
+GET   /docs/swagger-ui/*file     controllers.Assets.at(path:String="/public/lib/swagger-ui", file:String)
+GET   /*file                     controllers.Assets.at(path:String="/public", file)
