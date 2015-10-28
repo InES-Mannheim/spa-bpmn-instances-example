@@ -20,6 +20,7 @@ libraryDependencies ++= Seq(
   "org.openrdf.sesame" % "sesame-sail-memory" % "4.0.0",
   "org.openrdf.sesame" % "sesame-repository-sail" % "4.0.0",
   "org.openrdf.sesame" % "sesame-rio-jsonld" % "4.0.0",
+  "org.openrdf.sesame" % "sesame-rio-rdfxml" % "4.0.0",
   "com.github.jsonld-java" % "jsonld-java" % "0.7.0"
 )
 

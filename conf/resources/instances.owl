@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#"
+     xml:base="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl">
+        <rdfs:comment xml:lang="de">Minimal BPMN instances vocabulary to support scan E-Mail Workflow</rdfs:comment>
+        <owl:imports rdf:resource="http://dkm.fbk.eu/index.php/BPMN2_Ontology#"/>
+        <owl:versionIRI rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl/0.0.1"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#followedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#followedBy">
+        <rdfs:domain rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#flowElementInstance"/>
+        <rdfs:range rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#flowElementInstance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#isInstanceOfFlowElement -->
+
+    <owl:ObjectProperty rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#isInstanceOfFlowElement">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="http://dkm.fbk.eu/index.php/BPMN2_Ontology#flowElement"/>
+        <rdfs:domain rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#flowElementInstance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#isInstanceOfProcess -->
+
+    <owl:ObjectProperty rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#isInstanceOfProcess">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://dkm.fbk.eu/index.php/BPMN2_Ontology#process"/>
+        <rdfs:range rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#processInstance"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#baseElementInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#baseElementInstance"/>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#catchEventInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#catchEventInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#eventInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#endEventInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#endEventInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#throwEventInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#eventInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#eventInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#flowElementInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#exclusiveGatewayInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#exclusiveGatewayInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#flowElementInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#flowElementInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#flowElementInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#baseElementInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#processInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#processInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#rootElementInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#rootElementInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#rootElementInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#baseElementInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#scriptTaskInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#scriptTaskInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#taskInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#sequenceFlowInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#sequenceFlowInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#flowElementInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#startEventInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#startEventInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#catchEventInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#taskInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#taskInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#flowElementInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#throwEventInstance -->
+
+    <owl:Class rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#throwEventInstance">
+        <rdfs:subClassOf rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#eventInstance"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

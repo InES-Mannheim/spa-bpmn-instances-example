@@ -50,15 +50,7 @@
     <owl:NamedIndividual rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#putInSpamFolder_scanMailProcess_1">
         <rdf:type rdf:resource="&instances;sequenceFlowInstance"/>
         <instances:isInstanceOfFlowElement rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/scanMailProcess.owl#putIntoSpamFolder_ScriptTask"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#scanMailToSpamGateway_scanMailProcess_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#scanMailToSpamGateway_scanMailProcess_1">
-        <rdf:type rdf:resource="&instances;sequenceFlowInstance"/>
-        <instances:isInstanceOfFlowElement rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/scanMailProcess.owl#scanResult_SequenceFlow"/>
+        <instances:followedBy rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#identifiedAsSpam_scanMailProcess_1"/>
     </owl:NamedIndividual>
     
 
@@ -68,15 +60,7 @@
     <owl:NamedIndividual rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#scanMail_scanMailProcess_1">
         <rdf:type rdf:resource="&instances;scriptTaskInstance"/>
         <instances:isInstanceOfFlowElement rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/scanMailProcess.owl#scanMail_ScriptTask"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#scanStartToScanMail_scanMailProcess_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#scanStartToScanMail_scanMailProcess_1">
-        <rdf:type rdf:resource="&instances;sequenceFlowInstance"/>
-        <instances:isInstanceOfFlowElement rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/scanMailProcess.owl#startScan_SequenceFlow"/>
+        <instances:followedBy rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#putInSpamFolder_scanMailProcess_1"/>
     </owl:NamedIndividual>
     
 
@@ -86,24 +70,7 @@
     <owl:NamedIndividual rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#scanStart_scanMailProcess_1">
         <rdf:type rdf:resource="&instances;startEventInstance"/>
         <instances:isInstanceOfFlowElement rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/scanMailProcess.owl#startScanMail_StartEvent"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#spamGatewayToPutinSpamFolder_scanMailProcess_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#spamGatewayToPutinSpamFolder_scanMailProcess_1">
-        <rdf:type rdf:resource="&instances;sequenceFlowInstance"/>
-        <instances:isInstanceOfFlowElement rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#spamGatewayToPutinSpamFolder_scanMailProcess_1"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#spamGateway_scanMailProcess_1 -->
-
-    <owl:NamedIndividual rdf:about="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#spamGateway_scanMailProcess_1">
-        <rdf:type rdf:resource="&instances;exclusiveGatewayInstance"/>
-        <instances:isInstanceOfFlowElement rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/scanMailProcess.owl#isSpamMailGateway_ExclusiveGateway"/>
+        <instances:followedBy rdf:resource="http://www.uni-mannheim.de/spa/bpmn2.0/scannedAsSpam.owl#scanMail_scanMailProcess_1"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 

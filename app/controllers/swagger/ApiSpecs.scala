@@ -1,9 +1,10 @@
-package controllers
+package controllers.swagger
+
+import javax.inject._
 
 import com.iheart.playSwagger.SwaggerSpecGenerator
 import play.api.cache.Cached
 import play.api.mvc._
-import javax.inject._
 import play.api.routing._
 
 
