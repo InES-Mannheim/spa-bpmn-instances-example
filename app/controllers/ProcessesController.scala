@@ -4,8 +4,11 @@ import javax.inject.Inject
 
 import dal.ProcessRepository
 import org.openrdf.model.Model
+import org.openrdf.rio.helpers.StatementCollector
 import play.api.libs.json._
 import play.api.mvc.{Action, Controller}
+
+import play.api.mvc.BodyParsers.parse
 
 class ProcessesController @Inject()(repo: ProcessRepository) extends Controller {
 
@@ -19,5 +22,12 @@ class ProcessesController @Inject()(repo: ProcessRepository) extends Controller 
     val model: Model = repo.findById(id)
     if(model.isEmpty) Status(NOT_FOUND)
     else Ok(Json.toJson(ModelWrapper(model))).as("application/ld+json")
+  }
+
+  def create = Action(parse.tolerantJson) { implicit request =>
+    request.body.validate[ModelWrapper] match {
+      case s: JsSuccess[ModelWrapper] => Ok("parsed")
+      case e: JsError => Status(400)
+    }
   }
 }

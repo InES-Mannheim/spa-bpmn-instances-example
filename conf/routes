@@ -11,7 +11,7 @@
 #    404:
 #      description: If no process could be found
 ###
-GET     /processes              controllers.ProcessesController.list
+GET        /processes                                         controllers.ProcessesController.list
 
 ###
 #  tags:
@@ -26,7 +26,9 @@ GET     /processes              controllers.ProcessesController.list
 #    404:
 #      description: If process could not be found
 ###
-GET     /processes/:id          controllers.ProcessesController.findById(id: String)
+GET        /processes/:id                                     controllers.ProcessesController.findById(id: String)
+
+POST    /processes              controllers.ProcessesController.create
 
 ###
 #  tags:
@@ -41,7 +43,7 @@ GET     /processes/:id          controllers.ProcessesController.findById(id: Str
 #    404:
 #      description: If process instances could not be found
 ###
-GET     /processes/:processId/instances                controllers.ProcessInstancesController.listInstancesForProcess(processId: String)
+GET        /processes/:processId/instances                    controllers.ProcessInstancesController.listInstancesForProcess(processId: String)
 
 ###
 #  tags:
@@ -56,21 +58,20 @@ GET     /processes/:processId/instances                controllers.ProcessInstan
 #    404:
 #      description: If process instance could not be found
 ###
-GET     /processes/:processId/instances/:instanceId    controllers.ProcessInstancesController.findInstanceForProcessById(processId: String, instanceId: String)
+GET        /processes/:processId/instances/:instanceId        controllers.ProcessInstancesController.findInstanceForProcessById(processId: String, instanceId: String)
 
 ### NoDocs ###
-GET   /docs/swagger.json         @controllers.swagger.ApiSpecs.specs
+GET        /docs/swagger.json                                 @controllers.swagger.ApiSpecs.specs
 
-# POST    /processes              controllers.ProcessesController.create
+
+### NoDocs ###
+GET        /docs/swagger-ui/*file                             controllers.Assets.at(path:String="/public/lib/swagger-ui", file:String)
+
+### NoDocs ###
+GET        /assets/*file                                      controllers.Assets.at(path="/public", file)
+
 # PUT     /processes/:id          controllers.ProcessesController.update(id: String)
 # DELETE  /processes/:id          controllers.ProcessesController.delete(id: String)
-
-### NoDocs ###
-GET   /docs/swagger-ui/*file     controllers.Assets.at(path:String="/public/lib/swagger-ui", file:String)
-
-### NoDocs ###
-GET  /assets/*file        controllers.Assets.at(path="/public", file)
-
 # POST    /processes/:processId/instances    controllers.ProcessInstancesController.create(processId: String)
 # PUT     /processes/:processId/instances/:instanceId    controllers.ProcessInstancesController.update(processId: String, instanceId: String)
 # DELETE     /processes/:processId/instances/:instanceId    controllers.ProcessInstancesController.delete(processId: String, instanceId: String)
