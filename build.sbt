@@ -8,6 +8,8 @@ scalaVersion := "2.11.7"
 
 resolvers += Resolver.jcenterRepo
 
+resolvers += "dl-john-ky" at "http://dl.john-ky.io/maven/releases"
+
 libraryDependencies ++= Seq(
   jdbc,
   cache,
@@ -21,7 +23,8 @@ libraryDependencies ++= Seq(
   "org.openrdf.sesame" % "sesame-repository-sail" % "4.0.0",
   "org.openrdf.sesame" % "sesame-rio-jsonld" % "4.0.0",
   "org.openrdf.sesame" % "sesame-rio-rdfxml" % "4.0.0",
-  "com.github.jsonld-java" % "jsonld-java" % "0.7.0"
+  "com.github.jsonld-java" % "jsonld-java" % "0.7.0",
+  "io.john-ky" %% "hashids-scala" % "1.1.0-b33fd4e"
 )
 
 libraryDependencies += "org.webjars" % "swagger-ui" % "2.1.2"

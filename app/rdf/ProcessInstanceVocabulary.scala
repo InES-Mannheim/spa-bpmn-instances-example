@@ -1,7 +1,7 @@
-package dal
+package rdf
 
+import IriImplicits._
 import org.openrdf.model.IRI
-import dal.IriImplicits._
 
 trait ProcessInstanceVocabulary {
   val ProcessInstance:IRI = "http://www.uni-mannheim.de/spa/bpmn2.0/instances.owl#processInstance"

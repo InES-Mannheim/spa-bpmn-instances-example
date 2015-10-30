@@ -2,7 +2,8 @@ package dal
 
 import javax.inject.{Inject, Singleton}
 
-import dal.IriImplicits._
+import rdf.{IriImplicits, ProcessInstanceVocabulary}
+import IriImplicits._
 import info.aduna.iteration.Iterations
 import org.openrdf.model._
 import org.openrdf.model.impl.LinkedHashModel
@@ -10,6 +11,7 @@ import org.openrdf.model.vocabulary.RDF
 import org.openrdf.repository.Repository
 import play.api.Logger
 import play.api.inject.ApplicationLifecycle
+import rdf.ProcessInstanceVocabulary
 
 import scala.concurrent.Future
 import scala.util.Success
@@ -36,7 +38,7 @@ class ProcessInstanceRepository @Inject()(lifeCycle: ApplicationLifecycle, val r
 
   def findAllInstancesForProcess(processId: String): Model = tryWithConnection { connection =>
     val idUri: IRI = s"http://localhost:9000/processes/$processId"
-    Logger.info(s"Loading all instances for for process $idUri")
+    Logger.info(s"Loading all instances for process $idUri")
     Iterations.asList(connection.getStatements(null, isInstanceOfProcess, idUri, true))
   } map { statements => new LinkedHashModel(statements)
   } getOrElse new LinkedHashModel

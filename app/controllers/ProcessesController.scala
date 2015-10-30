@@ -10,6 +10,8 @@ import play.api.mvc.{Action, Controller}
 
 import play.api.mvc.BodyParsers.parse
 
+import scala.util.{Failure, Success}
+
 class ProcessesController @Inject()(repo: ProcessRepository) extends Controller {
 
   def list = Action { implicit request =>
@@ -26,8 +28,11 @@ class ProcessesController @Inject()(repo: ProcessRepository) extends Controller 
 
   def create = Action(parse.tolerantJson) { implicit request =>
     request.body.validate[ModelWrapper] match {
-      case s: JsSuccess[ModelWrapper] => Ok("parsed")
-      case e: JsError => Status(400)
+      case JsSuccess(wrapper, _) => repo.create(wrapper.model) match {
+        case Success(iri) => Ok(iri.toString)
+        case Failure(e) => InternalServerError(e.toString)
+      }
+      case JsError(e) => BadRequest(e.toString)
     }
   }
 }

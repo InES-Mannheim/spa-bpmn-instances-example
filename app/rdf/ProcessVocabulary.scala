@@ -1,4 +1,4 @@
-package dal
+package rdf
 
 import org.openrdf.model.IRI
 import IriImplicits._
