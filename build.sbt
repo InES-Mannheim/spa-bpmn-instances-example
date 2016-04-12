@@ -1,4 +1,4 @@
-name := """spa-rest-process-instances"""
+name := """spa-bpmn-instances-example"""
 
 version := "0.0.1-SNAPSHOT"
 
